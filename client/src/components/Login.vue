@@ -4,7 +4,7 @@
             <div class="white elevation-2">
                 <v-toolbar flat dense class="cyan" dark>
                     <v-toolbar-title class="mr-4">
-                        Register
+                        Login
                     </v-toolbar-title>
                 </v-toolbar>
 
@@ -22,8 +22,8 @@
                     <div class="error" v-html="error" />
                     <v-btn class="cyan"
                         dark
-                        @click="register">
-                        Register
+                        @click="login">
+                        Login
                     </v-btn>
                 </div>
             </div>
@@ -42,9 +42,9 @@ export default {
       }
   },
   methods: {
-      async register () {
+      async login () {
           try {
-            await AuthenticationService.register({
+            await AuthenticationService.login({
                 email: this.email,
                 password: this.password
             })
@@ -53,16 +53,7 @@ export default {
           }
       }
   }
-//   watch: {
-//       email (value) {
-//           console.log('Email has changed', value)
-//       }
-//   },
-//   mounted () {
-//       setTimeout(() => {
-//           this.email = 'Hello world'
-//       }, 2000)
-//   }
+
 }
 </script>
 
