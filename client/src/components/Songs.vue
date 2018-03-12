@@ -59,7 +59,7 @@ import SongsService from '@/services/SongsService'
 export default {
     data () {
         return {
-            songs: []
+            songs: null
         }
     },
     components: {
