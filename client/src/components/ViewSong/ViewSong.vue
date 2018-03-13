@@ -1,22 +1,31 @@
 <template>
-    <v-layout>
-        <v-flex xs6>
-            <song-meta-data :song="song"/>
-        </v-flex>
-
-        <v-flex xs6 class="ml-2">
-            <you-tube></you-tube>
-        </v-flex>
-
-        <v-layout>
+    <div>
+        <v-layout class="mt-4">
             <v-flex xs6>
+                <song-meta-data :song="song"/>
+            </v-flex>
+
+            <v-flex xs6 class="ml-2">
+                <you-tube :youtubeId="song.youtubeId"/>
             </v-flex>
         </v-layout>
-    </v-layout>
+
+        <v-layout class="mt-2">
+            <v-flex xs6>
+                <lyrics :song="song"/>
+            </v-flex>
+
+            <v-flex xs6 class="ml-2">
+                <tab :song="song"/>
+            </v-flex>
+        </v-layout>
+    </div>
 </template>
 <script>
-import YouTube from './YouTube'
+import Lyrics from './Lyrics'
 import SongMetaData from './SongMetaData'
+import Tab from './Tab'
+import YouTube from './YouTube'
 import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 
@@ -31,23 +40,13 @@ export default {
         this.song = (await SongsService.show(songId)).data
     },
     components: {
+        Lyrics,
         Panel,
         SongMetaData,
+        Tab,
         YouTube
     }
 }
 </script>
 <style scoped>
-
-textarea {
-    width: 100%;
-    font-family: monospace;
-    border: none;
-    height: 600px;
-    border-style: none;
-    border-color: transparent;
-    overflow: auto;
-    padding: 40px;
-    resize: none;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <v-layout column>
+    <v-layout column class="mt-4">
         <v-flex xs6 offset-xs3>
             <panel title="Songs">
                 <v-btn
