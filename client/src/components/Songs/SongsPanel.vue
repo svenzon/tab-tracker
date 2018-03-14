@@ -9,7 +9,9 @@
             middle
             fab
             slot="action"
-            @click="navigateTo({name: 'songs-create'})">
+            :to="{
+                name: 'songs-create'
+            }">
                 <v-icon>add</v-icon>
         </v-btn>
 
@@ -33,7 +35,7 @@
                         dark
                         middle
                         class="cyan"
-                        @click="navigateTo(
+                        :to="(
                             {
                                 name: 'song',
                                 params: {songId: song.id}

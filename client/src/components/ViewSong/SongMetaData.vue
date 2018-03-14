@@ -14,7 +14,7 @@
                 <v-btn
                 dark
                 class="cyan"
-                @click="navigateTo({
+                :to="({
                     name: 'song-edit',
                     params: {
                         songId: song.id
