@@ -12,17 +12,33 @@
                     {{song.genre}}
                 </div>
                 <v-btn
-                dark
-                class="cyan"
-                :to="({
-                    name: 'song-edit',
-                    params () {
-                        return {
-                            songId: song.id
+                    dark
+                    class="cyan"
+                    :to="({
+                        name: 'song-edit',
+                        params () {
+                            return {
+                                songId: song.id
+                            }
                         }
-                    }
                 })">
                 Edit Song
+                </v-btn>
+
+                <v-btn
+                    v-if="isUserLoggedIn"
+                    dark
+                    class="cyan"
+                    @click="bookmark">
+                    Bookmark
+                </v-btn>
+
+                <v-btn
+                    v-if="isUserLoggedIn"
+                    dark
+                    class="cyan"
+                    @click="unbookmark">
+                    Unbookmark
                 </v-btn>
             </v-flex>
 
@@ -35,14 +51,24 @@
     </panel>
 </template>
 <script>
+import {mapState} from 'vuex'
+
 export default {
     props: [
         'song'
     ],
     methods: {
-        navigateTo (route) {
-            this.$router.push(route)
+        bookmark () {
+            console.log('bookmarked')
+        },
+        unbookmark () {
+            console.log('unbookmark')
         }
+    },
+    computed: {
+        ...mapState([
+            'isUserLoggedIn'
+        ])
     }
 }
 </script>

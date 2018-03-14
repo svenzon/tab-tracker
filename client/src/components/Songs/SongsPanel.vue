@@ -60,11 +60,6 @@ export default {
             songs: null
         }
     },
-    methods: {
-        navigateTo (route) {
-            this.$router.push(route)
-        }
-    },
     watch: {
         '$route.query.search': {
             immediate: true,
