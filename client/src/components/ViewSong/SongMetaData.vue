@@ -52,11 +52,19 @@
 </template>
 <script>
 import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
 
 export default {
     props: [
         'song'
     ],
+    async mounted () {
+        const bookmark = (await BookmarksService.index({
+            songId: 1,
+            userId: 10
+        })).data
+        console.log('bookmark', bookmark)
+    },
     methods: {
         bookmark () {
             console.log('bookmarked')
