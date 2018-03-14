@@ -50,7 +50,6 @@
     </panel>
 </template>
 <script>
-import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 
 export default {
@@ -67,9 +66,6 @@ export default {
     async mounted () {
         // find the songs in the backend
         this.songs = (await SongsService.index()).data
-    },
-    components: {
-        Panel
     }
 }
 </script>
