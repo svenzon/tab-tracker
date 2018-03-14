@@ -13,6 +13,7 @@
 
         <v-toolbar-items>
             <v-btn
+                class="nav-btn"
                 flat dark
                 :to="{
                     name: 'songs'
@@ -25,6 +26,7 @@
 
         <v-toolbar-items>
             <v-btn
+                class="nav-btn"
                 flat dark
                 v-if="!$store.state.isUserLoggedIn"
                 :to="{
@@ -34,6 +36,7 @@
             </v-btn>
 
             <v-btn
+                class="nav-btn"
                 flat dark
                 v-if="!$store.state.isUserLoggedIn"
                 :to="{
@@ -43,6 +46,7 @@
             </v-btn>
 
             <v-btn
+                class="nav-btn"
                 flat dark
                 v-if="$store.state.isUserLoggedIn"
                 @click="logout">
@@ -75,6 +79,10 @@ export default {
     }
 
     .home:hover {
+        color: blanchedalmond;
+    }
+
+    .nav-btn:hover {
         color: blanchedalmond;
     }
 </style>
